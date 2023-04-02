@@ -2,8 +2,8 @@
 
 var Promise = TrelloPowerUp.Promise;
 
-var BLACK_ROCKET_ICON =
-  "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
+var BLACK_ROCKET_ICON = "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
+var PRICE_TAG_ICON = "https://cdn.glitch.global/6c3fd098-187e-4506-a7cc-c21dbb301f70/price-tag-icon.png?v=1680461173244"
 
 window.TrelloPowerUp.initialize({
   "card-badges": function (t, opts) {
@@ -29,8 +29,8 @@ window.TrelloPowerUp.initialize({
               
               return {
                 text: "Price " + ids.toString(),
-                icon: BLACK_ROCKET_ICON, //"./images/icon.svg",
-                // color: "green",
+                icon: PRICE_TAG_ICON, //"./images/icon.svg",
+                color: "light black",
                 refresh: 10, // in seconds
               };
             },
