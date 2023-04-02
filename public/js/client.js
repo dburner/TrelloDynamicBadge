@@ -30,7 +30,7 @@ window.TrelloPowerUp.initialize({
               return {
                 text: "Price " + ids.toString(),
                 icon: BLACK_ROCKET_ICON, //"./images/icon.svg",
-                color: "green",
+                // color: "green",
                 refresh: 10, // in seconds
               };
             },
