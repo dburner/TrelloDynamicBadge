@@ -9,9 +9,9 @@ window.TrelloPowerUp.initialize({
   "card-badges": function (t, opts) {
     let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
     return t
-      .card("name")
-      .get("name")
-      .then(function (cardName) {
+      .card("name desc")
+      .get("name desc")
+      .then(function (cardName, cardDesc) {
         console.log("We just loaded the card name for fun: " + cardName);
         return [
           {
@@ -21,22 +21,20 @@ window.TrelloPowerUp.initialize({
             dynamic: function () {
               // we could also return a Promise that resolves to
               // this as well if we needed to do something async first
+              const regex = /- \*\*Id\*\*: \[(.{5,14})\]/;
+              const ids = cardDesc.match(regex))
+                  .filter(s => s?.length == 2)
+                  .map(s => s[1]);
+              
+              
               return {
-                text: "Dynamic " + (Math.random() * 100).toFixed(0).toString(),
-                icon: "./images/icon.svg",
+                text: "Dynamic " + ids.toString(),
+                icon: BLACK_ROCKET_ICON, //"./images/icon.svg",
                 color: "green",
                 refresh: 10, // in seconds
               };
             },
-          },
-          {
-            // It's best to use static badges unless you need your
-            // badges to refresh.
-            // You can mix and match between static and dynamic
-            text: "Static",
-            icon: HYPERDEV_ICON, // for card front badges only
-            color: null,
-          },
+          }
         ];
       });
   },
