@@ -21,7 +21,7 @@ window.TrelloPowerUp.initialize({
             dynamic: function () {
               // we could also return a Promise that resolves to
               // this as well if we needed to do something async first
-              const regex = /- \*\*Price\*\*: (.{1,14})\n/;
+              const regex = /- \*\*Price\*\*: (.{1,50})\n/;
               const match = cardDesc.match(regex);
               
               const ids = match.length == 2 ? match[1] : ' no match';
