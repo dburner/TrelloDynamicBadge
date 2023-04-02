@@ -9,10 +9,10 @@ window.TrelloPowerUp.initialize({
   "card-badges": function (t, opts) {
     let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
     return t
-      .card("name desc")
-      .get("name desc")
-      .then(function (cardName, cardDesc) {
-        console.log("We just loaded the card name for fun: " + cardName);
+      .card("name", "desc")
+      .get("desc", "desc")
+      .then(function (cardDesc, cardName) {
+        console.log("We just loaded the card name for fun: " + cardName + cardDesc);
         return [
           {
             // Dynamic badges can have their function rerun
@@ -21,14 +21,14 @@ window.TrelloPowerUp.initialize({
             dynamic: function () {
               // we could also return a Promise that resolves to
               // this as well if we needed to do something async first
-              const regex = /- \*\*Id\*\*: \[(.{5,14})\]/;
-              const ids = cardDesc.match(regex))
-                  .filter(s => s?.length == 2)
-                  .map(s => s[1]);
+              const regex = /- \*\*Price\*\*: (.{1,14})\n/;
+              const match = cardDesc.match(regex);
               
+              const ids = match.length == 2 ? match[1] : ' no match';
+
               
               return {
-                text: "Dynamic " + ids.toString(),
+                text: "Price " + ids.toString(),
                 icon: BLACK_ROCKET_ICON, //"./images/icon.svg",
                 color: "green",
                 refresh: 10, // in seconds
