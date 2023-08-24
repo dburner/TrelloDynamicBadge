@@ -3,7 +3,7 @@
 var Promise = TrelloPowerUp.Promise;
 
 var BLACK_ROCKET_ICON = "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
-var PRICE_TAG_ICON = "https://cdn.glitch.global/6c3fd098-187e-4506-a7cc-c21dbb301f70/price-tag-icon.png?v=1680461173244";
+var PRICE_TAG_ICON    = "https://cdn.glitch.global/6c3fd098-187e-4506-a7cc-c21dbb301f70/price-tag-icon.png?v=1680461173244";
 
 var badgeFunction = function (t, opts) {
     let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
@@ -11,9 +11,7 @@ var badgeFunction = function (t, opts) {
       .card("name", "desc")
       .get("desc", "desc")
       .then(function (cardDesc, cardName) {
-        console.log(
-          "We just loaded the card name for fun: " + cardName + cardDesc
-        );
+        console.log("We just loaded the card name for fun: " + cardName + cardDesc);
         return [
           {
             // Dynamic badges can have their function rerun
@@ -75,9 +73,7 @@ window.TrelloPowerUp.initialize({
             });
 
             return {
-              sortedIds: sortedCards.map(function (c) {
-                return c.id;
-              }),
+              sortedIds: sortedCards.map( c => c.id),
             };
           },
         },
