@@ -10,7 +10,7 @@
     "express": "^4.15.2"
   },
   "engines": {
-    "node": "6.10.x"
+    "node": "16.14.2"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/trello-power-up-skeleton"
